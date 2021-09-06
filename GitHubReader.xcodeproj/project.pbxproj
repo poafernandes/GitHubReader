@@ -17,6 +17,11 @@
 		6E3A97F526DD201C0039AFCC /* GitHubReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3A97F426DD201C0039AFCC /* GitHubReaderUITests.swift */; };
 		6E3A980826DD26260039AFCC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3A980726DD26260039AFCC /* libsqlite3.0.tbd */; };
 		6E3A980B26DD26AC0039AFCC /* SQLiteUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3A980A26DD26AC0039AFCC /* SQLiteUtils.swift */; };
+		AC19594D26E57D3C00B1A374 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC19594C26E57D3B00B1A374 /* Repository.swift */; };
+		AC19595426E5933B00B1A374 /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC19595326E5933B00B1A374 /* RepositoryCell.swift */; };
+		AC19595626E5940C00B1A374 /* RepositoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC19595526E5940C00B1A374 /* RepositoryCellViewModel.swift */; };
+		AC19595926E596BD00B1A374 /* RepositoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC19595826E596BD00B1A374 /* RepositoriesController.swift */; };
+		AC19595B26E5A8AB00B1A374 /* FetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC19595A26E5A8AB00B1A374 /* FetchService.swift */; };
 		B33A91D2EE3A4D88E2D7B814 /* Pods_GitHubReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3CBC5CCFD1627CFC6B87B3 /* Pods_GitHubReader.framework */; };
 		C938802A90402E19C86D0475 /* Pods_GitHubReader_GitHubReaderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D75C4BDA4DB9CD7BA3C925CA /* Pods_GitHubReader_GitHubReaderUITests.framework */; };
 /* End PBXBuildFile section */
@@ -59,6 +64,11 @@
 		6E3A980A26DD26AC0039AFCC /* SQLiteUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteUtils.swift; sourceTree = "<group>"; };
 		84B1CFE2146D6F33AFC6329E /* Pods_GitHubReaderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubReaderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E2F93C39F2CF1C3725E3D7F /* Pods-GitHubReader-GitHubReaderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubReader-GitHubReaderUITests.debug.xcconfig"; path = "Target Support Files/Pods-GitHubReader-GitHubReaderUITests/Pods-GitHubReader-GitHubReaderUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AC19594C26E57D3B00B1A374 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		AC19595326E5933B00B1A374 /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
+		AC19595526E5940C00B1A374 /* RepositoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCellViewModel.swift; sourceTree = "<group>"; };
+		AC19595826E596BD00B1A374 /* RepositoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesController.swift; sourceTree = "<group>"; };
+		AC19595A26E5A8AB00B1A374 /* FetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchService.swift; sourceTree = "<group>"; };
 		C9A4707A4A3AEB024D5EBE7E /* Pods-GitHubReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubReader.debug.xcconfig"; path = "Target Support Files/Pods-GitHubReader/Pods-GitHubReader.debug.xcconfig"; sourceTree = "<group>"; };
 		D75C4BDA4DB9CD7BA3C925CA /* Pods_GitHubReader_GitHubReaderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubReader_GitHubReaderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBC885A6C7552E335E66A8DB /* Pods-GitHubReader-GitHubReaderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubReader-GitHubReaderUITests.release.xcconfig"; path = "Target Support Files/Pods-GitHubReader-GitHubReaderUITests/Pods-GitHubReader-GitHubReaderUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,7 +134,9 @@
 				6E3A980426DD20660039AFCC /* ViewModel */,
 				6E3A980326DD20560039AFCC /* View */,
 				6E3A980226DD20420039AFCC /* Model */,
+				AC19595726E5969F00B1A374 /* Controller */,
 				6E3A97DB26DD201B0039AFCC /* Assets.xcassets */,
+				6E3A97D626DD201A0039AFCC /* ViewController.swift */,
 				6E3A97DD26DD201B0039AFCC /* LaunchScreen.storyboard */,
 				6E3A97E026DD201B0039AFCC /* Info.plist */,
 			);
@@ -152,6 +164,7 @@
 		6E3A980226DD20420039AFCC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AC19594C26E57D3B00B1A374 /* Repository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,7 +172,7 @@
 		6E3A980326DD20560039AFCC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6E3A97D626DD201A0039AFCC /* ViewController.swift */,
+				AC19595326E5933B00B1A374 /* RepositoryCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -167,6 +180,7 @@
 		6E3A980426DD20660039AFCC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				AC19595526E5940C00B1A374 /* RepositoryCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -195,8 +209,17 @@
 			isa = PBXGroup;
 			children = (
 				6E3A980A26DD26AC0039AFCC /* SQLiteUtils.swift */,
+				AC19595A26E5A8AB00B1A374 /* FetchService.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		AC19595726E5969F00B1A374 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AC19595826E596BD00B1A374 /* RepositoriesController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B3D4754C6521181DB22A24A9 /* Pods */ = {
@@ -449,10 +472,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC19595926E596BD00B1A374 /* RepositoriesController.swift in Sources */,
+				AC19595626E5940C00B1A374 /* RepositoryCellViewModel.swift in Sources */,
+				AC19595426E5933B00B1A374 /* RepositoryCell.swift in Sources */,
 				6E3A97D726DD201A0039AFCC /* ViewController.swift in Sources */,
+				AC19595B26E5A8AB00B1A374 /* FetchService.swift in Sources */,
 				6E3A97D326DD201A0039AFCC /* AppDelegate.swift in Sources */,
 				6E3A97D526DD201A0039AFCC /* SceneDelegate.swift in Sources */,
 				6E3A980B26DD26AC0039AFCC /* SQLiteUtils.swift in Sources */,
+				AC19594D26E57D3C00B1A374 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
