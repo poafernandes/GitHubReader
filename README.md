@@ -4,8 +4,8 @@
 Desafio com o propósito de montar uma aplicação que liste os repositórios públicos em Swift pela API do Github e deixe o usuário salvar seus repositórios favoritos.
 
 ## Padrões usados
-- MVVM
-- Coordinator
+- MVVM (Primeira implementação)
+- Coordinator (Primeira implementaçao)
 
 ## Funcionalidades
 - Integração com a API do Github para listagem dos repositórios
@@ -17,7 +17,7 @@ Desafio com o propósito de montar uma aplicação que liste os repositórios p�
 
 ## Demonstração
 
+https://user-images.githubusercontent.com/30806203/132447975-e91ca14a-36e4-4239-9576-537ce593196a.mp4
 
-https://user-images.githubusercontent.com/30806203/132447632-877f8a56-c556-4fe7-93b7-7bd62c0cddc1.mp4
 
 
