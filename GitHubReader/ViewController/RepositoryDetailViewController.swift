@@ -20,6 +20,8 @@ class repositoryDetailViewController: UIViewController {
         navigationItem.title = repository?.name
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        detailView.saveButton.addTarget(self, action: #selector(saveRepository), for: .touchUpInside)
+
         fillData()
     }
     
@@ -27,7 +29,17 @@ class repositoryDetailViewController: UIViewController {
         self.view = RepositoryDetailView(frame: UIScreen.main.bounds)
     }
     
+    @objc func saveRepository(){
+        print(repository)
+        
+        let saveRepo = SQLiteUtils.shared
+        
+        saveRepo.insertRepository(repository: repository!)
+    }
+    
     private func fillData(){
+        detailView.setIntoStackView(button: detailView.saveButton, label: nil)
+
         detailView.setLabelIntoStackView(type: "header", label: "Owner:")
         detailView.setLabelIntoStackView(type: "content", label: (repository?.owner.login)!)
         
@@ -56,8 +68,10 @@ class repositoryDetailViewController: UIViewController {
 
         detailView.setLabelIntoStackView(type: "header", label: "Open Issues:")
         detailView.setLabelIntoStackView(type: "content", label: "❗️ \(repository!.open_issues_count)")
-
-
     }
+    
+    
+    
+    
 }
 

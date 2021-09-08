@@ -55,7 +55,7 @@ class repositoryListViewController: UITableViewController {
                 return
             }
 
-            //Mapeando os itens (cada repositório para as células da TableView
+            //Mapeando os itens (cada repositório) para as células da TableView
             self.repositoryCellViewModels = repositories?.map({ return RepositoryCellViewModel(repository: $0)}) ?? []
             DispatchQueue.main.async {
                 self.tableView.reloadData()

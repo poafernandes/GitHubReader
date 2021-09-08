@@ -14,4 +14,5 @@ final class RepositoryDetailViewModel {
     init(repository: Repository) {
         self.repository = repository
     }
+
 }
