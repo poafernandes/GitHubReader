@@ -13,6 +13,8 @@ class repositoryListViewController: UITableViewController {
     
     var repositoryCellViewModels = [RepositoryCellViewModel]()
     
+    var segmentedControl = UISegmentedControl()
+    
     //Identificador auxiliar
     let cellId = "cellId"
     
@@ -25,6 +27,14 @@ class repositoryListViewController: UITableViewController {
         
         //Criando e populando a table view
         setupTableView()
+        fetchData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupSegmentedControl()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         fetchData()
     }
     
@@ -44,6 +54,7 @@ class repositoryListViewController: UITableViewController {
     //Repassando o repositorio selecionado
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let repository: Repository = repositoryCellViewModels[indexPath.row].repository
+        segmentedControl.removeFromSuperview()
         coordinator?.repositoryViewController(repository: repository)
     }
 
@@ -55,11 +66,22 @@ class repositoryListViewController: UITableViewController {
                 return
             }
 
-            //Mapeando os itens (cada repositório para as células da TableView
+            //Mapeando os itens (cada repositório) para as células da TableView
             self.repositoryCellViewModels = repositories?.map({ return RepositoryCellViewModel(repository: $0)}) ?? []
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+        }
+    }
+    
+    fileprivate func fetchFavorites(){
+        let getFavorites = SQLiteUtils.shared
+        
+        let favoritesRepositoires = getFavorites.selectRepositories()
+        
+        self.repositoryCellViewModels = favoritesRepositoires.map({ return RepositoryCellViewModel(repository: $0)})
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
 
@@ -70,5 +92,32 @@ class repositoryListViewController: UITableViewController {
         tableView.estimatedRowHeight = 60
 
         tableView.tableFooterView = UIView()
+    }
+    
+    func setupSegmentedControl(){
+        let options = ["Repositories", "Favorites"]
+        
+        segmentedControl = UISegmentedControl(items: options)
+        segmentedControl.addTarget(self, action: #selector(changeTableView), for: .valueChanged)
+        segmentedControl.selectedSegmentIndex = 0
+        
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        
+        //Ficou bugado mas amanha trabalho cedo
+        //definindo a entrada do segmented control na view do navigation controller pra ficar acima da UITableView
+        navigationController?.view.addSubview(segmentedControl)
+        segmentedControl.topAnchor.constraint(equalTo: (navigationController?.view.safeAreaLayoutGuide.topAnchor)!).isActive = true
+        segmentedControl.widthAnchor.constraint(equalTo: (navigationController?.view.safeAreaLayoutGuide.widthAnchor)!).isActive = true
+    }
+    
+    @objc func changeTableView(_ segmentedControl: UISegmentedControl){
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            fetchData()
+        case 1:
+            fetchFavorites()
+        default:
+            fetchData()
+        }
     }
 }

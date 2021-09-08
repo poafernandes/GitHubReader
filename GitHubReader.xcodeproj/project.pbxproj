@@ -137,8 +137,6 @@
 		6E3A97D126DD201A0039AFCC /* GitHubReader */ = {
 			isa = PBXGroup;
 			children = (
-				AC19597A26E6AD8200B1A374 /* Repository Detail */,
-				AC19597926E6AD7C00B1A374 /* Repository */,
 				6E3A980926DD26900039AFCC /* Utils */,
 				6E3A980526DD20EA0039AFCC /* App */,
 				6E3A980426DD20660039AFCC /* ViewModel */,
@@ -243,60 +241,6 @@
 			);
 			name = Coordinator;
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		AC19597926E6AD7C00B1A374 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				AC19597F26E6ADB400B1A374 /* View Model */,
-				AC19597E26E6ADAC00B1A374 /* View */,
-				AC19597D26E6ADA500B1A374 /* Coordinator */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		AC19597A26E6AD8200B1A374 /* Repository Detail */ = {
-			isa = PBXGroup;
-			children = (
-				AC19597C26E6AD9B00B1A374 /* Coordinator */,
-				AC19597B26E6AD9500B1A374 /* View */,
-			);
-			path = "Repository Detail";
-			sourceTree = "<group>";
-		};
-		AC19597B26E6AD9500B1A374 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		AC19597C26E6AD9B00B1A374 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		AC19597D26E6ADA500B1A374 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		AC19597E26E6ADAC00B1A374 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		AC19597F26E6ADB400B1A374 /* View Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "View Model";
 			sourceTree = "<group>";
 		};
 		B3D4754C6521181DB22A24A9 /* Pods */ = {
