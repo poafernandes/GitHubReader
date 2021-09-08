@@ -62,17 +62,10 @@ class RepositoryDetailView: UIView {
         stackView.spacing = 20
     }
     
-    let saveButton: UIButton = {
+    let favoriteButton: UIButton = {
         let button = primaryButton()
-        button.setTitle("Save", for: .normal)
+        button.setTitle("⭐️", for: .normal)
         button.backgroundColor = .systemYellow
-        return button
-    }()
-    
-    let removeButton: UIButton = {
-        let button = primaryButton()
-        button.setTitle("Remove", for: .normal)
-        button.backgroundColor = .systemRed
         return button
     }()
     

@@ -121,4 +121,41 @@ class SQLiteUtils {
         }
 
     }
+    
+    func favoriteRepository(repository: Repository){
+        let database =  FMDatabase(path: self.databasePath as String)
+        
+        var alreadyInserted: Bool = false
+        
+        if(database.open()){
+            do {
+                let checkInsertion = try database.executeQuery("select * from saved_repositories WHERE repo_id=\(repository.id)", values: nil)
+                while checkInsertion.next() {
+                    alreadyInserted = true
+                }
+            }
+            catch {
+                print("\(error.localizedDescription)")
+            }
+            if(!alreadyInserted)
+            {
+                do {
+                    try database.executeUpdate("INSERT INTO saved_repositories(repo_id, name, owner_id, owner_name, git_url, description, homepage_url, stargazers, watchers, open_issues) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", values: [repository.id, repository.name, repository.owner.id, repository.owner.login, repository.git_url, repository.description ?? "", repository.homepage ?? "", repository.stargazers_count, repository.watchers_count, repository.open_issues_count ])
+
+                }
+                catch {
+                    print("\(error.localizedDescription)")
+                }
+            }
+            else {
+                do {
+                    try database.executeUpdate("DELETE FROM saved_repositories WHERE repo_id=?", values: [repository.id])
+                }
+                catch {
+                    print("\(error.localizedDescription)")
+                }
+            }
+        database.close()
+        }
+    }
 }
